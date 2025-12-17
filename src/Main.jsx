@@ -4,24 +4,23 @@ import Buttons from "./Buttons.jsx";
 import Display from "./Display.jsx";
 
 export default function Main() {
+  let increment = 0;
   const [value, setValue] = useState(0);
 
-  function changetoOne() {
+  function changeValue(e) {
     setValue((value) => {
-      return 1;
+      value = e.value;
     });
   }
 
   function clear() {
-    setValue((value) => {
-      return 0;
-    });
+    setValue(0);
   }
 
   return (
     <div>
       <Display value={value} />
-      <Buttons changetoOne={changetoOne} clear={clear} />
+      <Buttons changeValue={changeValue} clear={clear} increment={increment} />
     </div>
   );
 }
